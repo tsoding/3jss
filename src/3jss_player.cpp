@@ -47,17 +47,29 @@ void Player::update(Seconds dt)
     if (state == State::Sliding) {
         sliding.a += dt * PLAYER_SLIDING_SPEED;
         if (sliding.a >= 1.0) {
-            state = State::Idle;
             tile = sliding.target;
+
+            if (step_buffer.empty()) {
+                state = State::Idle;
+            } else {
+                sliding.a = 0.0;
+                sliding.target = tile + tile_dir(step_buffer.dq());
+            }
         }
     }
 }
 
 void Player::step_to(Tile_Direction dir)
 {
-    if (state == State::Idle) {
+    switch (state) {
+    case State::Idle: {
         state = State::Sliding;
         sliding.target = tile + tile_dir(dir);
         sliding.a = 0;
+    } break;
+
+    case State::Sliding: {
+        step_buffer.nq(dir);
+    } break;
     }
 }
