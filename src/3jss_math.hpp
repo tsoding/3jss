@@ -81,6 +81,11 @@ V2<U> normalize(V2<T> a)
     return V2(b.x / l, b.y / l);
 }
 
+V2<float> lerp(V2<float> a, V2<float> b, float t)
+{
+    return a + (b - a) * t;
+}
+
 template <typename T>
 struct Rect
 {

@@ -23,6 +23,7 @@ const Hex_Color PLAYER_COLOR = 0xF5E148FF;
 const Hex_Color BACKGROUND_COLOR_1 = 0x133133FF;
 const Hex_Color BACKGROUND_COLOR_2 = 0x1F2832FF;
 const float TILE_SIZE = 69.0;
+const float PLAYER_SLIDING_SPEED = 8.0;
 
 Hex_Color colors[] = {
     0xF5E148FF,

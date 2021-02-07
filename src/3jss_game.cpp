@@ -31,8 +31,10 @@ void Game::render()
 
 void Game::update(Seconds dt)
 {
-    camera.set_target(center_of_tile(player.tile));
+    camera.set_target(player.raw_center());
     camera.update(dt);
+
+    player.update(dt);
 }
 
 void Game::handle_event(SDL_Event *event)
@@ -45,19 +47,19 @@ void Game::handle_event(SDL_Event *event)
     case SDL_KEYDOWN: {
         switch (event->key.keysym.sym) {
         case SDLK_w:
-            player.tile += V2(0, -1);
+            player.step_to(Tile_Direction::Up);
             break;
 
         case SDLK_s:
-            player.tile += V2(0, 1);
+            player.step_to(Tile_Direction::Down);
             break;
 
         case SDLK_d:
-            player.tile += V2(1, 0);
+            player.step_to(Tile_Direction::Right);
             break;
 
         case SDLK_a:
-            player.tile += V2(-1, 0);
+            player.step_to(Tile_Direction::Left);
             break;
         }
     } break;

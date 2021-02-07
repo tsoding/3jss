@@ -4,6 +4,26 @@
 using Tile_Coord = V2<int>;
 using Raw_Coord = V2<float>;
 
+enum class Tile_Direction {
+    Left,
+    Right,
+    Up,
+    Down
+};
+
+Tile_Coord tile_dir(Tile_Direction dir)
+{
+    switch (dir) {
+    case Tile_Direction::Left: return V2(-1, 0);
+    case Tile_Direction::Right: return V2(1, 0);
+    case Tile_Direction::Up: return V2(0, -1);
+    case Tile_Direction::Down: return V2(0, 1);
+    default: {
+        assert(false && "tile_dir: unreachable");
+    }
+    }
+}
+
 Tile_Coord raw_to_tile(Raw_Coord pos)
 {
     return (pos / TILE_SIZE).map(floorf).cast_to<int>();
