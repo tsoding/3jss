@@ -19,12 +19,16 @@ const Seconds UPDATE_DELTA_TIME_SECS = 1.0 / static_cast<float>(SCREEN_FPS);
 const Milliseconds UPDATE_DELTA_TIME_MS = static_cast<Milliseconds>(UPDATE_DELTA_TIME_SECS * 1000);
 
 const Hex_Color BACKGROUND_COLOR = 0x181818FF;
-const Hex_Color PLAYER_COLOR = 0xF5E148FF;
 const Hex_Color BACKGROUND_COLOR_1 = 0x133133FF;
 const Hex_Color BACKGROUND_COLOR_2 = 0x1F2832FF;
-const float TILE_SIZE = 69.0;
+
+const Hex_Color PLAYER_COLOR = 0xF5E148FF;
 const float PLAYER_SLIDING_SPEED = 8.0;
 const size_t PLAYER_STEP_BUFFER_SIZE = 3;
+
+const float TILE_SIZE = 69.0;
+
+const size_t CHUNK_SIZE = 4;
 
 Hex_Color colors[] = {
     0xF5E148FF,

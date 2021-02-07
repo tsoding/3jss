@@ -1,8 +1,8 @@
 #ifndef THREEJSS_TILE_HPP_
 #define THREEJSS_TILE_HPP_
 
-using Tile_Coord = V2<int>;
 using Raw_Coord = V2<float>;
+using Tile_Coord = V2<int>;
 
 enum class Tile_Direction {
     Left,
